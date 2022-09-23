@@ -1,0 +1,77 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;700&display=swap');
+
+:root {
+    --light-slate: #cbd5e1;
+    --dark-slate: #0f172a;
+    --dark-indigo: #3730a3;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Oswald', sans-serif;
+}
+
+body {
+    background: var(--dark-slate);
+}
+
+.select-box {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgb(99,102,241);
+    background: linear-gradient(90deg, rgba(99,102,241,1) 0%, rgba(79,70,229,1) 37%, rgba(55,48,163,1) 71%);
+    padding: 20px 25px 25px;
+    border-radius: 5px;
+    max-width: 330px;
+    width: 100%;
+    border: 1px solid var(--light-slate);
+}
+
+.select-box header {
+    font-size: 23px;
+    font-weight: 600;
+    padding-bottom: 10px;
+    color: white;
+    border-bottom: 1px solid var(--light-slate);
+}
+
+.select-box .title {
+    font-size: 18px;
+    font-weight: 500;
+    margin: 20px 0;
+    color: var(--light-slate);
+}
+
+.select-box .options {
+    display: flex;
+    width: 100%;
+}
+
+.options button {
+    width: 100%;
+    font-size: 18px;
+    font-weight: 500;
+    padding: 8px 0;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+    color: var(--dark-indigo);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.options button:hover {
+    transform: scale(0.96);
+}
+
+.options button.playerX {
+    margin-right: 5px;
+}
+
+.options button.playerO {
+    margin-left: 5px;
+}
