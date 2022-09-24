@@ -115,6 +115,18 @@ body {
     justify-content: space-between;
 }
 
+.players.active span:first-child {
+    color: var(--dark-indigo);
+}
+
+.players.active span:nth-child(2) {
+    color: var(--light-slate);
+}
+
+.players.active .slider {
+    left: 50%;
+}
+
 .play-board .details .players span {
     width: 100%;
     border-radius: 5px;
@@ -126,6 +138,7 @@ body {
     text-align: center;
     position: relative;
     z-index: 5;
+    transition: all 0.3s ease;
 }
 
 .details .players span:first-child {
@@ -141,6 +154,7 @@ body {
     background: var(--dark-slate); 
     border-radius: 5px;
     z-index: 2;
+    transition: all 0.3s ease;
 }
 
 .play-board .play-area {
