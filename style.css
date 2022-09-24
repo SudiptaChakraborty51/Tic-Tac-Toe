@@ -22,6 +22,7 @@ body {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    transition: all 0.3s ease;
 }
 
 .select-box {
@@ -32,7 +33,12 @@ body {
     max-width: 330px;
     width: 100%;
     border: 1px solid var(--light-slate);
-    /* display: none; */
+}
+
+.select-box.hide {
+    opacity: 0;
+    pointer-events: none;
+    transform: translate(-50%, -50%) scale(0.9);
 }
 
 .select-box header {
@@ -82,7 +88,15 @@ body {
 }
 
 .play-board {
-    display: none;
+    opacity: 0;
+    pointer-events: none;
+    transform: translate(-50%, -50%) scale(0.9);
+}
+
+.play-board.show {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translate(-50%, -50%) scale(1);
     border: 1px solid var(--light-slate);
     border-radius: 5px;
 }
