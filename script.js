@@ -107,6 +107,17 @@ function selectWinner() { //if one combination of them matched then select the w
             resultBox.classList.add("show");
         }, 700);
         wonText.innerHTML = `Player <p>${playerSign}</p> won the game!`;
-        //let show the result box with winner sign
+    } else {
+        //if match has drawn
+        //first we'll check all id...if all span has id and no one won the game then we'll draw the game
+        if(getClass(1) != "" && getClass(2) != "" && getClass(3) != "" && getClass(4) != "" && getClass(5) != "" && getClass(6) != "" && getClass(7) != "" && getClass(8) != "" && getClass(9) != ""){
+            runBot=false;
+            bot(runBot);
+            setTimeout(()=>{ //we'll delay to show result box
+                playBoard.classList.remove("show");
+                resultBox.classList.add("show");
+            }, 700);
+            wonText.textContent = "Match has been drawn!";
+        }
     }
 }
