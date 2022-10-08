@@ -6,7 +6,7 @@ const allBox = document.querySelectorAll("section span");
 const players = document.querySelector(".players");
 const resultBox = document.querySelector(".result-box");
 const wonText = document.querySelector(".won-text");
-const replayBtn = document.querySelector("button");
+const replayBtn = document.querySelector(".replay-btn");
 
 window.onload = () => { //once window loaded
     for (let i = 0; i < allBox.length; i++) { //add onclick attribute in all available section's spans
@@ -120,4 +120,8 @@ function selectWinner() { //if one combination of them matched then select the w
             wonText.textContent = "Match has been drawn!";
         }
     }
+}
+
+replayBtn.onclick = ()=>{
+    window.location.reload(); //reload the current page
 }
