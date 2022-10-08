@@ -4,6 +4,9 @@ const selectOBtn = selectBox.querySelector(".playerO");
 const playBoard = document.querySelector(".play-board");
 const allBox = document.querySelectorAll("section span");
 const players = document.querySelector(".players");
+const resultBox = document.querySelector(".result-box");
+const wonText = document.querySelector(".won-text");
+const replayBtn = document.querySelector("button");
 
 window.onload = () => { //once window loaded
     for (let i = 0; i < allBox.length; i++) { //add onclick attribute in all available section's spans
@@ -99,5 +102,11 @@ function selectWinner() { //if one combination of them matched then select the w
         //once match won by someone then stop the bot
         runBot=false;
         bot(runBot);
+        setTimeout(()=>{ //we'll delay to show result box
+            playBoard.classList.remove("show");
+            resultBox.classList.add("show");
+        }, 700);
+        wonText.innerHTML = `Player <p>${playerSign}</p> won the game!`;
+        //let show the result box with winner sign
     }
 }
