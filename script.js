@@ -7,6 +7,9 @@ const players = document.querySelector(".players");
 const resultBox = document.querySelector(".result-box");
 const wonText = document.querySelector(".won-text");
 const replayBtn = document.querySelector(".replay-btn");
+let turn = new Audio("turn.wav");
+let win = new Audio("win.wav");
+let draw = new Audio("draw.wav");
 
 window.onload = () => { //once window loaded
     for (let i = 0; i < allBox.length; i++) { //add onclick attribute in all available section's spans
@@ -33,17 +36,20 @@ function clickedBox(element) {
     if (players.classList.contains("player")) { //if players element has contains .player
         element.innerHTML = `<i class="${playerOIcon}"></i>`; //adding circle icon tag inside user clicked element
         players.classList.add("active");
+        turn.play();
         //if player will be O then we'll change the sign
         playerSign = "O";
         element.setAttribute("id", playerSign);
     } else {
         element.innerHTML = `<i class="${playerXIcon}"></i>`; //adding cross icon tag inside user clicked element
         players.classList.add("active");
+        turn.play();
         element.setAttribute("id", playerSign);
     }
     selectWinner(); //calling the winner function
     playBoard.style.pointerEvents = "none"; //once user select then user can't select any other box until box select
     element.style.pointerEvents = "none"; //once user select any box then that box can't be selected again
+    turn.play();
     let randomDelayTime = ((Math.random() * 1000) + 200).toFixed(); //generating random time delay so bot will delay randomly to select box
     setTimeout(() => {
         bot(runBot);
@@ -106,6 +112,7 @@ function selectWinner() { //if one combination of them matched then select the w
             playBoard.classList.remove("show");
             resultBox.classList.add("show");
         }, 700);
+        win.play();
         wonText.innerHTML = `Player <p>${playerSign}</p> won the game!`;
     } else {
         //if match has drawn
@@ -117,6 +124,7 @@ function selectWinner() { //if one combination of them matched then select the w
                 playBoard.classList.remove("show");
                 resultBox.classList.add("show");
             }, 700);
+            draw.play();
             wonText.textContent = "Match has been drawn!";
         }
     }
