@@ -7,9 +7,11 @@ const players = document.querySelector(".players");
 const resultBox = document.querySelector(".result-box");
 const wonText = document.querySelector(".won-text");
 const replayBtn = document.querySelector(".replay-btn");
+const celebrate = document.querySelector(".celebrate");
 let turn = new Audio("turn.wav");
 let win = new Audio("win.wav");
 let draw = new Audio("draw.wav");
+celebrate.style.display = "none";
 
 window.onload = () => { //once window loaded
     for (let i = 0; i < allBox.length; i++) { //add onclick attribute in all available section's spans
@@ -111,6 +113,7 @@ function selectWinner() { //if one combination of them matched then select the w
         setTimeout(() => { //we'll delay to show result box
             playBoard.classList.remove("show");
             resultBox.classList.add("show");
+            celebrate.style.display = "block";
         }, 700);
         win.play();
         wonText.innerHTML = `Player <p>${playerSign}</p> won the game!`;
