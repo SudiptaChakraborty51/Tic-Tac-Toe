@@ -38,20 +38,18 @@ function clickedBox(element) {
     if (players.classList.contains("player")) { //if players element has contains .player
         element.innerHTML = `<i class="${playerOIcon}"></i>`; //adding circle icon tag inside user clicked element
         players.classList.add("active");
-        turn.play();
         //if player will be O then we'll change the sign
         playerSign = "O";
         element.setAttribute("id", playerSign);
     } else {
         element.innerHTML = `<i class="${playerXIcon}"></i>`; //adding cross icon tag inside user clicked element
         players.classList.add("active");
-        turn.play();
         element.setAttribute("id", playerSign);
     }
     selectWinner(); //calling the winner function
+    turn.play();
     playBoard.style.pointerEvents = "none"; //once user select then user can't select any other box until box select
     element.style.pointerEvents = "none"; //once user select any box then that box can't be selected again
-    turn.play();
     let randomDelayTime = ((Math.random() * 1000) + 200).toFixed(); //generating random time delay so bot will delay randomly to select box
     setTimeout(() => {
         bot(runBot);
